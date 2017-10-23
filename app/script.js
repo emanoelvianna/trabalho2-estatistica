@@ -8,10 +8,8 @@ var votosCandidatoC = 0;
 
 /* requisição para o biblioteca do google */
 google.load("visualization", "1", { packages: ["corechart"] });
-google.charts.load('current', { 'packages': ['corechart'] });
 google.setOnLoadCallback(processarPopulacao);
 google.setOnLoadCallback(processarAmostra);
-google.charts.setOnLoadCallback(graficoProporcaoVotos);
 
 /* função para realizar o processamento dos dados de populacao */
 function processarPopulacao() {
@@ -41,6 +39,7 @@ function consumirDadosPopulacao(resposta) {
     dados.Nf.filter(function(valores) {
         proporcaoDeVotos(valores.c[2].v);
     });
+    graficoProporcaoVotos();
     console.log("Total de votos para o candidato A: " + votosCandidatoA);
     console.log("Total de votos para o candidato C: " + votosCandidatoC);
 }
@@ -59,15 +58,11 @@ function proporcaoDeVotos(voto) {
 
 /* função para desenhar o gráfico de proporção de votos */
 function graficoProporcaoVotos() {
-    var data = google.visualization.arrayToDataTable([
-        ['Candidato', 'Votos'],
-        ['candidatoA', votosCandidatoA],
-        ['candidatoC', votosCandidatoC]
-    ]);
+    var data = [{
+        values: [votosCandidatoA, votosCandidatoC],
+        labels: ['candidato A', 'candidato C'],
+        type: 'pie'
+    }];
 
-    var options = {
-        backgroundColor: 'transparent',
-    };
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-    chart.draw(data, options);
+    Plotly.newPlot('piechart', data);
 }

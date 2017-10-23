@@ -12,7 +12,8 @@
     <script src="https://rawgit.com/angular/bower-material/master/angular-material.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
     <script src="https://www.google.com/jsapi" type="text/javascript"></script>
-    <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
     <!-- dependencias aplicacao  -->
     <script src="app/modulo.js"></script>
     <script src="app/script.js"></script>
@@ -23,24 +24,34 @@
         <md-content>
             <md-tabs md-dynamic-height md-border-bottom>
                 <md-tab label="Enunciado">
-                    <md-content class="md-padding">
-                        <h1 class="md-headline">Trabalho métodos estatísticos</h1>
-                        <p>Aluno: Emanoel A. Vianna Fabiano</p>
-                        <h1 class="md-subhead">Referências</h1>
+                    <md-content flex layout-padding>
+                        <h1 class="md-display-2">Trabalho métodos estatísticos</h1>
+                        <md-content>
+                            <h2 class="md-title">Aluno: Emanoel A. Vianna Fabiano</h2>
+                            <p>Para acessar os resultados obtidos, clique sobre a aba resultados</p>
+                            <md-divider ng-if="!$last"></md-divider>
+                        </md-content>
+                        <h2 class="md-title">Referências sobre o desenvolvimento</h2>
                         <p>
-                            </br>Conjunto de dados para a realização do trabalho:
-                            </br>Link para o código fonte do projeto:
-                            </br>Link para biblioteca utilizadas para trabalhar com arquivos csv:
-                            </br>Link para biblioteca utilizadas para realização dos gráficos:
+                            O trabalho foi desenvolvido na linguagem JavaScript, utilizada para trabalhar sobre os dados e realizar a consulta nos arquivos que estão hospedados no Google Drive. Os arquivos podem ser acessado através dessas urls:
+                            <a href="https://docs.google.com/spreadsheets/d/1unuhxkhDg2qTQnhTcYmC2GkEIPM18ai8PGtSsI44Bd8">acesso para os dados de população</a>,
+                            <a href="https://docs.google.com/spreadsheets/d/1UUPbVQ6p8gOFRMznBhsxJXEUW-Axx8C2LnLKWutcL6Y">acesso para os dados de amostra</a>.
+                        </p>
+                        <p>
+                            Durante o desenvolvimento do trabalho utilizamos uma biblioteca para auxiliar no desenho dos gráficos, ela está disponível <a href="https://plot.ly/javascript/pie-charts/">aqui</a>, existem muitas outras bibliotecas, mas esse
+                            foi uma das mais simples para se trabalhar encontrada durante a pesquisa.
+                        </p>
+                        <p>
+                            Para finalizar, o projeto é aberto e todo o seu código fonte também pode ser acessado <a href="https://github.com/emanoelvianna/trabalho2-estatistica">aqui</a>.
                         </p>
                     </md-content>
                 </md-tab>
                 <md-tab label="Resultados">
                     <md-content class="md-padding">
                         <h1 class="md-headline">1) Encontrar os parâmetros populacionais (N, proporção de votos de cada candidato, média e desvio-padrão da idade)</h1>
-                        <h1 class="md-subhead">Proporção de votos de cada candidato</h1>
+                        <h1 class="md-subhead">Proporção de votos de cada candidato:</h1>
                         <div id="piechart"></div>
-                        <h1 class="md-subhead">Média e desvio-padrão da idade</h1>
+                        <h1 class="md-subhead">Média e desvio-padrão da idade:</h1>
                     </md-content>
                 </md-tab>
             </md-tabs>
