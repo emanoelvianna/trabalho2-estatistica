@@ -8,9 +8,9 @@ var votosCandidatoC = 0;
 
 /* requisição para o biblioteca do google */
 google.load("visualization", "1", { packages: ["corechart"] });
+google.charts.load('current', { 'packages': ['corechart'] });
 google.setOnLoadCallback(processarPopulacao);
 google.setOnLoadCallback(processarAmostra);
-google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(graficoProporcaoVotos);
 
 /* função para realizar o processamento dos dados de populacao */
@@ -57,23 +57,17 @@ function proporcaoDeVotos(voto) {
     }
 }
 
-
-
+/* função para desenhar o gráfico de proporção de votos */
 function graficoProporcaoVotos() {
-    var votosA = eval(votosCandidatoA);
-    var votosC = eval(votosCandidatoC);
     var data = google.visualization.arrayToDataTable([
-        ['candidato', 'Votos'],
-        ['candidatoA', 2070],
-        ['candidatoC', 2930]
+        ['Candidato', 'Votos'],
+        ['candidatoA', votosCandidatoA],
+        ['candidatoC', votosCandidatoC]
     ]);
 
     var options = {
-        title: 'Proporção de votos de cada candidato',
         backgroundColor: 'transparent',
     };
-
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
     chart.draw(data, options);
 }
