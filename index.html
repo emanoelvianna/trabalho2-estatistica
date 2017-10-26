@@ -26,11 +26,16 @@
                 <md-tab label="Enunciado">
                     <md-content flex layout-padding>
                         <h1 class="md-display-2">Trabalho métodos estatísticos</h1>
-                        <md-content>
-                            <h2 class="md-title">Aluno: Emanoel A. Vianna Fabiano</h2>
-                            <p>Para acessar os resultados obtidos, clique sobre a aba resultados</p>
-                            <md-divider ng-if="!$last"></md-divider>
-                        </md-content>
+                        <h2 class="md-title">Aluno: Emanoel A. Vianna Fabiano</h2>
+                        <h1 class="md-subhead"><i>Para acessar os resultados obtidos, clique sobre a aba resultados</i></h1>
+                        <md-divider ng-if="!$last"></md-divider>
+                        <h2 class="md-title">Enunciados das questões</h2>
+                        <p>1) Encontrar os parâmetros populacionais (N, proporção de votos de cada candidato, média e desvio-padrão da idade)</p>
+                        <p>2) Segundo a Teoria, qual seria a distribuição amostral de xbarra e de p-chapéu (aqui use apenas o p-chapéu do candidato A) para amostra n=15?</p>
+                        <p>3) Extrair 500 amostras de tamanho n=15 e verificar o comporatamento dos estimadores. Teus resultados se assemelham a Teoria?</p>
+                        <p>4) PLUS! Construa intervalos de confiança 95% para cada amostra, tanto para a verdadeira média de idade, como para a proporção de A. Conte quantos intervalos contruídos contêm os parÂmetros populacionais e compare ops resultados
+                            com o teu nível de confiança.</p>
+                        <md-divider ng-if="!$last"></md-divider>
                         <h2 class="md-title">Referências sobre o desenvolvimento</h2>
                         <p>
                             O trabalho foi desenvolvido na linguagem JavaScript, utilizada para trabalhar sobre os dados e realizar a consulta nos arquivos que estão hospedados no Google Drive. Os arquivos podem ser acessado através dessas urls:
@@ -49,9 +54,14 @@
                 <md-tab label="Resultados">
                     <md-content class="md-padding">
                         <h1 class="md-headline">1) Encontrar os parâmetros populacionais (N, proporção de votos de cada candidato, média e desvio-padrão da idade)</h1>
-                        <h1 class="md-subhead">Proporção de votos de cada candidato:</h1>
-                        <div id="piechart"></div>
-                        <h1 class="md-subhead">Média e desvio-padrão da idade:</h1>
+                        <p id="totalVotos"></p>
+                        <p>Proporção de votos de cada candidato:</p>
+                        <p id="piechart"></p>
+                        <p id="mediavotosCandidatoA"></p>
+                        <p id="mediavotosCandidatoC"></p>
+                        <p id="desvioPadraoCandidatoA"></p>
+                        <p id="desvioPadraoCandidatoC"></p>
+                        <h1 class="md-headline">2) Segundo a Teoria, qual seria a distribuição amostral de xbarra e de p-chapéu (aqui use apenas o p-chapéu do candidato A) para amostra n=15?</h1>
                     </md-content>
                 </md-tab>
             </md-tabs>
